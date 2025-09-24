@@ -8,7 +8,7 @@
 # ├─ weights_challenge_1.pt
 # └─ weights_challenge_2.pt
 
-from braindecode.models import EEGConformer, Labram
+from braindecode.models import Labram
 import torch
 
 class Submission:
@@ -25,7 +25,7 @@ class Submission:
         return model_challenge1
 
     def get_model_challenge_2(self):
-        model_challenge2 = EEGConformer(
+        model_challenge2 = Labram(
             n_chans=129, n_outputs=1, n_times=int(2 * self.sfreq)
         ).to(self.device)
         # model_challenge2.load_state_dict(torch.load("/app/output/weights_challenge_2.pt", map_location=self.device))
