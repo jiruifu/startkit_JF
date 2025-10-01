@@ -160,10 +160,10 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--batch_size", type=int, default=72)
+    parser.add_argument("--batch_size", type=int, default=256)
     parser.add_argument("--lr", type=float, default=0.0002)
     parser.add_argument("--betas", type=tuple, default=(0.5, 0.9999))
-    parser.add_argument("--epochs", type=int, default=500)
+    parser.add_argument("--epochs", type=int, default=100)
 
     args = parser.parse_args()
     main(args)
