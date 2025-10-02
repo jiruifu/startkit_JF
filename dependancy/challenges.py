@@ -234,10 +234,6 @@ def challenge2(epochs:int,
                 logger:logging.Logger,
                 release:List[str]=["R5", "R6"],
                 full_data:bool=True,
-                scheduler:bool=False,
-                early_stop:bool=False,
-                patience:int=5,
-                min_delta:float=1e-4,
                 model:str="EEGConformer"
                 ):
     # The first step is define the cache folder!
@@ -254,7 +250,7 @@ def challenge2(epochs:int,
         EEGChallengeDataset(
             release=release,
             task="contrastChangeDetection",
-            mini=False,
+            mini=not full_data,
             description_fields=[
                 "subject",
                 "session",
@@ -317,3 +313,7 @@ def challenge2(epochs:int,
                                         n_epochs=epochs,
                                         logger=logger,
                                         print_freq=5)
+    model_name = f"{model.__class__.__name__}_challenge_2.pt"
+    model_name = os.path.join(save_dir, model_name)
+    torch.save(trained_model.state_dict(), model_name)
+    print(f"Model saved as {model_name}")

@@ -58,6 +58,7 @@ def main(args):
                     betas=args.betas,
                     device=device,
                     save_dir=args.save_dir,
+                    data_dir=args.data_dir,
                     logger=logger,
                     release=args.release,
                     full_data=args.full_data,
@@ -72,6 +73,7 @@ def main(args):
                     lr=args.lr,
                     betas=args.betas,
                     device=device,
+                    data_dir=args.data_dir,
                     save_dir=args.save_dir,
                     logger=logger,
                     release=args.release,
@@ -87,14 +89,14 @@ def main(args):
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument("--challenge", type=str, default="1")
-    args.add_argument("--batch_size", type=int, default=256)
+    args.add_argument("--batch_size", type=int, default=72)
     args.add_argument("--lr", type=float, default=0.0002)
     args.add_argument("--betas", type=tuple, default=(0.5, 0.9999))
     args.add_argument("--epochs", type=int, default=2000)
     args.add_argument("--model", type=str, default="EEGConformer")
     args.add_argument("--multi_gpu", type=str2bool, default=False)
 
-    args.add_argument("--release", type=list_of_str, default=["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"])
+    args.add_argument("--release", type=list_of_str, default=["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11"])
     args.add_argument("--full_data", type=str2bool, default=True)
     args.add_argument("--scheduler", type=str2bool, default=False)
     args.add_argument("--early_stop", type=str2bool, default=True)
@@ -103,7 +105,7 @@ if __name__ == "__main__":
 
     args.add_argument("--save_dir", type=str, default=r"/mnt/d/10_EEG-Challenge/startkit_JF/trained_models")
     args.add_argument("--log_dir", type=str, default=r"/mnt/d/10_EEG-Challenge/startkit_JF/logs")
-    args.add_argument("--data_dir", type=str, default=r"/mnt/d/10_EEG-Challenge/startkit_JF/data")
+    args.add_argument("--data_dir", type=str, default=r"/mnt/d/10_EEG-Challenge/Dataset")
 
     args = args.parse_args()
     main(args)

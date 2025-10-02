@@ -35,7 +35,7 @@ echo "Slurm nodes assigned: $SLURM_JOB_NODELIST"
 # Load necessary modules (modify according to your system)
 module purge
 module load anaconda/anaconda-2023.09
-conda activate eeg_2025
+conda activate eeg2025
 
 # Navigate to the script directory
 cd /lustre/fs1/home/ji045311/EEG_Challenge/
